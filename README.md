@@ -72,20 +72,20 @@ To run the example project, clone the repo, and run pod install from the Example
 Configuration of custom layouts is pretty easy:
 
 ```swift
-var layout: BaseLayout = TagsLayout()
+var layout = TagsStyleFlowLayout()
 
 layout.delegate = self
-layout.delegate = ItemsPadding(horizontal: 10, vertical: 10)
+layout.contentPadding = ItemsPadding(horizontal: 10, vertical: 10)
 layout.cellsPadding = ItemsPadding(horizontal: 8, vertical: 8)
 
 collectionView.collectionViewLayout = layout
 collectionView.reloadData()
 ```
 
-Also, you have to implement LayoutDelegate protocol:
+Also, you have to implement `ContentDynamicLayoutDelegate` protocol:
 
 ```swift
-public protocol LayoutDelegate: class {
+public protocol ContentDynamicLayoutDelegate: class {
     func cellSize(indexPath: IndexPath) -> CGSize
 }
 
